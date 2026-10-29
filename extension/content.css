@@ -1,0 +1,47 @@
+/* Remove Copilot mentions */
+html.deslop-copilot :is(
+  [data-testid="top-bar-actions"] > :has(#copilot-chat-header-button),
+  [data-testid="copilot-immersive-embedded-header-button"],
+  :is(header nav, [role="menu"]) li:has(> a[href$="/agents"], > a[href*="/agents?"]),
+  [role="menu"] :is(li, [role="menuitem"]):has(.octicon-copilot),
+  [data-testid="mergebox-border-container"] > section:has([data-testid="copilot-avatar"]),
+  [data-testid="mergebox-border-container"] :is(.ButtonGroup, [data-component="ButtonGroup"]) > div:has(> button > .octicon-copilot),
+  .js-discussion .Stack:has(> .StackItem > .octicon-copilot),
+  #copilot-code-review-limits-banner,
+  [id^="copilot-md-menu-anchor"],
+  #partial-discussion-sidebar div:has(> [data-hovercard-type="copilot"]),
+  #reviewers-select-menu .select-menu-item:has(.js-copilot-avatar:not([hidden]))
+) {
+  display: none !important;
+}
+
+/* The comment toolbar moves every item after one it can't see into its overflow menu, so collapse instead. */
+html.deslop-copilot :is(
+  .ActionBar-item:has(> [id^="copilot-md-menu-anchor"]),
+  .ActionBar-item:has(> [id^="copilot-md-menu-anchor"]) + .ActionBar-divider
+) {
+  visibility: hidden !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+/* Hide the new notifications badge */
+html.deslop-notifDot a[href="/notifications"]::before {
+  display: none !important;
+}
+
+/* Hide the org icon */
+html.deslop-orgIcon :is(
+  nav[aria-label="Breadcrumbs"] :is(img, [data-component="Avatar"]),
+  #repo-title-component img[data-testid="github-avatar"]
+) {
+  display: none !important;
+}
+
+/* Hide All issues / All PRs / All repos buttons */
+html.deslop-globalNav [data-testid="top-nav-right"] :is(a[href="/issues"], a[href="/pulls"], a[href="/repos"]) {
+  display: none !important;
+}

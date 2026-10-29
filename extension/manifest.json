@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "GitHub Deslop",
+  "version": "0.1.0",
+  "description": "Hides Copilot and other clutter from the GitHub interface.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "github-deslop@borshev.com",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["settings.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}

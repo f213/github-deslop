@@ -1,0 +1,18 @@
+{
+  "name": "github-deslop",
+  "version": "0.1.0",
+  "description": "Firefox extension that hides Copilot and other clutter from GitHub",
+  "scripts": {
+    "check": "node scripts/check.js",
+    "login": "node scripts/login.js",
+    "dev": "web-ext run --source-dir extension --firefox-profile $HOME/.cache/github-deslop/firefox-profile --start-url https://github.com/fandsdev/medical-backend/pull/694",
+    "probe": "node scripts/probe.js",
+    "sign": "node scripts/sign.js",
+    "lint": "web-ext lint --source-dir extension"
+  },
+  "type": "module",
+  "devDependencies": {
+    "selenium-webdriver": "^4.51.0",
+    "web-ext": "^10.8.0"
+  }
+}

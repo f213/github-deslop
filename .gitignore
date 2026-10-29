@@ -4,3 +4,5 @@ artifacts/
 web-ext-artifacts/
 AGENTS.local.md
 .amo-upload-uuid
+
+.claude/worktrees

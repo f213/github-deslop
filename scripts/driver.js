@@ -9,7 +9,7 @@ const ADDON_ID = JSON.parse(fs.readFileSync(path.join(ROOT, 'extension/manifest.
 const ADDON_UUID = '5e1f0c0a-de51-4d00-9a7e-000000000001';
 const OPTIONS_URL = `moz-extension://${ADDON_UUID}/options.html`;
 
-export async function startDriver({ extension = true } = {}) {
+export async function startDriver({ extension = true, addons = true } = {}) {
   if (!fs.existsSync(PROFILE_DIR)) throw new Error(`No profile at ${PROFILE_DIR}; run \`npm run login\` first`);
   const options = new firefox.Options()
     .setProfile(PROFILE_DIR)
@@ -23,7 +23,7 @@ export async function startDriver({ extension = true } = {}) {
     .setFirefoxService(service)
     .build();
   // Signed add-ons from the daily profile (Refined GitHub), so the test page matches what is really seen.
-  if (fs.existsSync(ADDONS_DIR)) {
+  if (addons && fs.existsSync(ADDONS_DIR)) {
     for (const xpi of fs.readdirSync(ADDONS_DIR).filter((f) => f.endsWith('.xpi'))) {
       await driver.installWebExtension(path.join(ADDONS_DIR, xpi), { permanent: false });
     }

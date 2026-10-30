@@ -7,6 +7,7 @@
     "login": "node scripts/login.js",
     "dev": "web-ext run --source-dir extension --firefox-profile $HOME/.cache/github-deslop/firefox-profile --start-url https://github.com/fandsdev/medical-backend/pull/694",
     "probe": "node scripts/probe.js",
+    "screenshots": "node scripts/screenshots.js",
     "sign": "node scripts/sign.js",
     "lint": "web-ext lint --source-dir extension"
   },

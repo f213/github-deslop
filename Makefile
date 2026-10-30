@@ -1,6 +1,4 @@
-XPI = $(shell ls -t web-ext-artifacts/*.xpi 2>/dev/null | head -1)
-
 .PHONY: install
-install:  ## Open the newest signed .xpi in the running Firefox, which prompts to add it
-	@test -n "$(XPI)" || (echo "No signed .xpi in web-ext-artifacts/; run npm run sign first" && exit 1)
-	open -a Firefox "$(XPI)"
+install:  ## Download the latest released .xpi and open it in the running Firefox, which prompts to add it
+	gh release download --repo f213/github-deslop --pattern '*.xpi' --dir web-ext-artifacts --clobber
+	open -a Firefox "$$(ls -t web-ext-artifacts/*.xpi | head -1)"

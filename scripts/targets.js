@@ -1,5 +1,6 @@
 export const PAGES = {
   pr: 'https://github.com/fandsdev/medical-backend/pull/694',
+  changes: 'https://github.com/fandsdev/medical-backend/pull/694/changes',
   repo: 'https://github.com/fandsdev/medical-backend',
 };
 
@@ -35,6 +36,8 @@ export const TARGETS = [
   { page: 'pr', setting: 'globalNav', name: 'all-issues', selector: '[data-testid="top-nav-right"] a[href="/issues"]' },
   { page: 'pr', setting: 'globalNav', name: 'all-pulls', selector: '[data-testid="top-nav-right"] a[href="/pulls"]' },
   { page: 'pr', setting: 'globalNav', name: 'all-repos', selector: '[data-testid="top-nav-right"] a[href="/repos"]' },
+  { page: 'changes', setting: 'copilot', name: 'toolbar-copilot-panel', selector: '[data-testid="file-controls-divider"] ~ * button > .octicon-copilot' },
+  { page: 'changes', setting: 'copilot', name: 'file-copilot-explain', selector: '[data-testid="copilot-diff-explain-button"]' },
   { page: 'repo', setting: 'copilot', name: 'agents-tab', selector: 'header a[href*="/agents"]' },
   { page: 'repo', setting: 'orgIcon', name: 'repo-title-avatar', selector: '#repo-title-component img[data-testid="github-avatar"]' },
 ];
@@ -52,5 +55,7 @@ export const KEEP = [
   { page: 'pr', name: 'comment-toolbar-numbered-list', selector: '.ActionBar-item', text: 'Numbered list' },
   { page: 'pr', name: 'reviewers-heading', selector: '#reviewers-select-menu summary' },
   { page: 'pr', name: 'reviewers-picker-open', selector: '#reviewers-select-menu[open] #review-filter-field', prepare: 'reviewerPicker' },
+  { page: 'changes', name: 'toolbar-comments-panel', selector: '[data-testid="file-controls-divider"] ~ * div:has(> button)', text: 'Open comments panel' },
+  { page: 'changes', name: 'file-viewed', selector: 'button[aria-label="Not Viewed"], button[aria-label="Viewed"]' },
   { page: 'repo', name: 'repo-name', selector: '#repo-title-component [data-testid="repo-name-link"]' },
 ];

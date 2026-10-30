@@ -10,7 +10,9 @@ html.deslop-copilot :is(
   #copilot-code-review-limits-banner,
   [id^="copilot-md-menu-anchor"],
   #partial-discussion-sidebar div:has(> [data-hovercard-type="copilot"]),
-  #reviewers-select-menu .select-menu-item:has(.js-copilot-avatar:not([hidden]))
+  #reviewers-select-menu .select-menu-item:has(.js-copilot-avatar:not([hidden])),
+  [data-testid="file-controls-divider"] ~ * div:has(> button > .octicon-copilot),
+  span:has(> [data-testid="copilot-diff-explain-button"])
 ) {
   display: none !important;
 }

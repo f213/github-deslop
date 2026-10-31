@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GitHub Deslop",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Hides Copilot and other clutter from the GitHub interface.",
   "browser_specific_settings": {
     "gecko": {

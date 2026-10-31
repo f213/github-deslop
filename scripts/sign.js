@@ -1,4 +1,4 @@
-// Uploads the extension to AMO as unlisted and downloads the signed .xpi into web-ext-artifacts/.
+// Submits the extension to its public AMO listing and downloads the signed .xpi into web-ext-artifacts/.
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,7 +12,10 @@ const { status } = spawnSync(
   path.join(ROOT, 'node_modules/.bin/web-ext'),
   [
     'sign',
-    '--channel=unlisted',
+    '--channel=listed',
+    `--amo-metadata=${path.join(ROOT, 'amo-metadata.json')}`,
+    // Listed versions wait for AMO review before the signed .xpi can be downloaded.
+    '--approval-timeout=3600000',
     `--source-dir=${path.join(ROOT, 'extension')}`,
     `--artifacts-dir=${path.join(ROOT, 'web-ext-artifacts')}`,
   ],

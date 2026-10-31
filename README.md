@@ -17,7 +17,7 @@ Each item can be switched off on the extension's options page.
 
 ## Install
 
-Download the `.xpi` from the [latest release](https://github.com/f213/github-deslop/releases/latest) and open it in Firefox. Firefox 142 or newer is required.
+Install it from [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/github-deslop/), or download the `.xpi` from the [latest release](https://github.com/f213/github-deslop/releases/latest) and open it in Firefox. Firefox 142 or newer is required.
 
 ## Development
 
@@ -34,7 +34,7 @@ Every rule in `extension/content.css` has a target in `scripts/targets.js` that 
 
 ## Releasing
 
-Bump `version` in `extension/manifest.json` and push to `main`. The Release workflow signs the extension on AMO as unlisted and attaches the `.xpi` to a `v<version>` GitHub release.
+Bump `version` in `extension/manifest.json` and push to `main`. The Release workflow submits the extension to its [AMO listing](https://addons.mozilla.org/firefox/addon/github-deslop/), waits for review and attaches the `.xpi` to a `v<version>` GitHub release.
 
 ## License
 

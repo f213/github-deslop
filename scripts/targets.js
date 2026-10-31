@@ -47,7 +47,7 @@ export const KEEP = [
   { page: 'pr', name: 'search', selector: '[data-testid="top-nav-center"] button[aria-label^="Open quick search"]' },
   { page: 'pr', name: 'create-menu', selector: '[data-testid="top-bar-actions"] button[aria-labelledby^="global-create-menu"]' },
   { page: 'pr', name: 'inbox', selector: 'a[href="/notifications"]' },
-  { page: 'pr', name: 'actions-tab', selector: 'a[data-tab-item="actions"]' },
+  { page: 'pr', name: 'actions-tab', selector: 'header a[href$="/actions"]' },
   { page: 'pr', name: 'org-breadcrumb', selector: 'nav[aria-label="Breadcrumbs"] a[href="/fandsdev"]' },
   { page: 'pr', name: 'mergebox-draft', selector: '[data-testid="mergebox-border-container"] section[aria-label="Draft state"]' },
   { page: 'pr', name: 'mergebox-resolve-conflicts', selector: '[data-testid="mergebox-border-container"] button', text: 'Resolve conflicts' },

@@ -35,3 +35,7 @@ Every rule in `extension/content.css` has a target in `scripts/targets.js` that 
 ## Releasing
 
 Bump `version` in `extension/manifest.json` and push to `main`. The Release workflow signs the extension on AMO as unlisted and attaches the `.xpi` to a `v<version>` GitHub release.
+
+## License
+
+[MIT](LICENSE)

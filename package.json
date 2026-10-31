@@ -11,6 +11,7 @@
     "sign": "node scripts/sign.js",
     "lint": "web-ext lint --source-dir extension"
   },
+  "license": "MIT",
   "type": "module",
   "devDependencies": {
     "selenium-webdriver": "^4.51.0",

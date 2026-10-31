@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GitHub Deslop",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Hides Copilot and other clutter from the GitHub interface.",
   "browser_specific_settings": {
     "gecko": {
@@ -25,6 +25,11 @@
       "run_at": "document_start"
     }
   ],
+  "action": {
+    "default_icon": "icon.svg",
+    "default_title": "GitHub Deslop",
+    "default_popup": "options.html"
+  },
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true

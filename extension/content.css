@@ -2,7 +2,7 @@
 html.deslop-copilot :is(
   [data-testid="top-bar-actions"] > :has(#copilot-chat-header-button),
   [data-testid="copilot-immersive-embedded-header-button"],
-  :is(header nav, [role="menu"]) li:has(> a[href$="/agents"], > a[href*="/agents?"]),
+  [role="menu"] li:has(> a[href$="/agents"], > a[href*="/agents?"]),
   [role="menu"] :is(li, [role="menuitem"]):has(.octicon-copilot),
   [data-testid="mergebox-border-container"] > section:has([data-testid="copilot-avatar"]),
   [data-testid="mergebox-border-container"] :is(.ButtonGroup, [data-component="ButtonGroup"]) > div:has(> button > .octicon-copilot),
@@ -28,6 +28,14 @@ html.deslop-copilot :is(
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
+}
+
+/* The repo tabs show «More» when any tab is off the first row, which a hidden one counts as, so collapse it too. */
+html.deslop-copilot header nav li:has(> a[href$="/agents"], > a[href*="/agents?"]) {
+  visibility: hidden !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  margin-inline-start: calc(var(--stack-gap-condensed, .5rem) * -1) !important;
 }
 
 /* Hide the new notifications badge */

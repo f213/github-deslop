@@ -14,7 +14,7 @@ const onlyPage = process.argv[2];
 function probe(selector, pseudo, text) {
   const elements = [...document.querySelectorAll(selector)].filter((el) => !text || el.textContent.includes(text));
   const isVisible = (el) => {
-    if (!el.checkVisibility()) return false;
+    if (!el.checkVisibility({ visibilityProperty: true })) return false;
     if (!pseudo) return true;
     const style = getComputedStyle(el, pseudo);
     return style.content !== 'none' && style.display !== 'none';

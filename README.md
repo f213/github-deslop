@@ -1,4 +1,4 @@
-# GitHub Deslop
+# <img src="extension/icon.svg" alt="" width="40" align="top"> GitHub Deslop
 
 A Firefox extension that hides Copilot and other clutter from github.com.
 

@@ -34,7 +34,7 @@ Every rule in `extension/content.css` has a target in `scripts/targets.js` that 
 
 ## Releasing
 
-Bump `version` in `extension/manifest.json` and push to `main`. The Release workflow submits the extension to its [AMO listing](https://addons.mozilla.org/firefox/addon/github-deslop/), waits for review and attaches the `.xpi` to a `v<version>` GitHub release.
+Bump `version` in `extension/manifest.json` and push to `main`. The Release workflow submits the extension to its [AMO listing](https://addons.mozilla.org/firefox/addon/github-deslop/), waits for review and attaches the `.xpi` to a `v<version>` GitHub release. Until review passes, that release is a prerelease carrying `github-deslop-dev-<version>.xpi`, an unlisted "GitHub Deslop (dev)" add-on that AMO signs without review.
 
 ## License
 

@@ -1,10 +1,10 @@
 name: Release
 
-# Every manifest version that reaches main without a GitHub release yet is signed on AMO and published.
+# Every manifest version that reaches master without a GitHub release yet is signed on AMO and published.
 # A prerelease carrying the dev add-on comes first, so the build is installable while AMO review is pending.
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 concurrency: release

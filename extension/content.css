@@ -2,7 +2,7 @@
 html.deslop-copilot :is(
   [data-testid="top-bar-actions"] > :has(#copilot-chat-header-button),
   [data-testid="copilot-immersive-embedded-header-button"],
-  [role="menu"] li:has(> a[href$="/agents"], > a[href*="/agents?"]),
+  [role="menu"] li:has(> a[href$="/agents"], > a[href*="/agents?"], > a[href="/copilot"]),
   [role="menu"] :is(li, [role="menuitem"]):has(.octicon-copilot),
   [data-testid="mergebox-border-container"] > section:has([data-testid="copilot-avatar"]),
   [data-testid="mergebox-border-container"] :is(.ButtonGroup, [data-component="ButtonGroup"]) > div:has(> button > .octicon-copilot),
@@ -12,7 +12,9 @@ html.deslop-copilot :is(
   #partial-discussion-sidebar div:has(> [data-hovercard-type="copilot"]),
   #reviewers-select-menu .select-menu-item:has(.js-copilot-avatar:not([hidden])),
   [data-testid="file-controls-divider"] ~ * div:has(> button > .octicon-copilot),
-  span:has(> [data-testid="copilot-diff-explain-button"])
+  span:has(> [data-testid="copilot-diff-explain-button"]),
+  button[data-testid="copilot-ask-menu"],
+  button[data-component="IconButton"]:has(> .octicon-agent)
 ) {
   display: none !important;
 }

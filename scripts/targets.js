@@ -2,11 +2,21 @@ export const PAGES = {
   pr: 'https://github.com/fandsdev/eslint-config-fans/pull/47',
   changes: 'https://github.com/fandsdev/eslint-config-fans/pull/47/changes',
   repo: 'https://github.com/fandsdev/eslint-config-fans',
+  blob: 'https://github.com/fandsdev/eslint-config-fans/blob/main/README.md',
 };
 
 // Run in the page right before a check that names them, to reveal targets that only render on
 // interaction. Scrolling makes GitHub re-render parts of the page, so they must be idempotent.
 export const PREPARE = {
+  createMenu: async () => {
+    const until = async (predicate) => {
+      for (let i = 0; i < 100 && !predicate(); i++) await new Promise((r) => setTimeout(r, 150));
+    };
+    if (!document.querySelector('[role="menu"] a[href="/gist"]')) {
+      document.querySelector('[data-testid="top-bar-actions"] button[aria-labelledby^="global-create-menu"]').click();
+    }
+    await until(() => document.querySelector('[role="menu"] a[href="/gist"]'));
+  },
   reviewerPicker: async () => {
     const until = async (predicate) => {
       for (let i = 0; i < 100 && !predicate(); i++) await new Promise((r) => setTimeout(r, 150));
@@ -38,6 +48,9 @@ export const TARGETS = [
   { page: 'changes', setting: 'copilot', name: 'toolbar-copilot-panel', selector: '[data-testid="file-controls-divider"] ~ * button > .octicon-copilot' },
   { page: 'changes', setting: 'copilot', name: 'file-copilot-explain', selector: '[data-testid="copilot-diff-explain-button"]' },
   { page: 'repo', setting: 'copilot', name: 'agents-tab', selector: 'header a[href*="/agents"]' },
+  { page: 'blob', setting: 'copilot', name: 'blob-ask-copilot', selector: 'button[data-testid="copilot-ask-menu"]' },
+  { page: 'blob', setting: 'copilot', name: 'blob-agent-session', selector: 'button > .octicon-agent' },
+  { page: 'blob', setting: 'copilot', name: 'create-menu-agent-session', selector: '[role="menu"] a[href="/copilot"]', prepare: 'createMenu' },
   { page: 'repo', setting: 'orgIcon', name: 'repo-title-avatar', selector: '#repo-title-component img[data-testid="github-avatar"]' },
 ];
 
@@ -55,5 +68,7 @@ export const KEEP = [
   { page: 'pr', name: 'reviewers-picker-open', selector: '#reviewers-select-menu[open] #review-filter-field', prepare: 'reviewerPicker' },
   { page: 'changes', name: 'toolbar-comments-panel', selector: '[data-testid="file-controls-divider"] ~ * div:has(> button)', text: 'Open comments panel' },
   { page: 'changes', name: 'file-viewed', selector: 'button[aria-label="Not Viewed"], button[aria-label="Viewed"]' },
+  { page: 'blob', name: 'blob-raw', selector: '[data-testid="raw-button"]' },
+  { page: 'blob', name: 'create-menu-gist', selector: '[role="menu"] a[href="/gist"]', prepare: 'createMenu' },
   { page: 'repo', name: 'repo-name', selector: '#repo-title-component [data-testid="repo-name-link"]' },
 ];

@@ -14,7 +14,9 @@ html.deslop-copilot :is(
   [data-testid="file-controls-divider"] ~ * div:has(> button > .octicon-copilot),
   span:has(> [data-testid="copilot-diff-explain-button"]),
   button[data-testid="copilot-ask-menu"],
-  button[data-component="IconButton"]:has(> .octicon-agent)
+  button[data-component="IconButton"]:has(> :is(.octicon-agent, .octicon-space)),
+  [role="menu"] [data-component="ActionList.Group"]:has([data-testid="copilot-menu-items"]),
+  [role="menu"] [data-component="ActionList.Group"]:has([data-testid="copilot-menu-items"]) + [data-component="ActionList.Divider"]
 ) {
   display: none !important;
 }
@@ -55,5 +57,15 @@ html.deslop-orgIcon :is(
 
 /* Hide All issues / All PRs / All repos buttons */
 html.deslop-globalNav [data-testid="top-nav-right"] :is(a[href="/issues"], a[href="/pulls"], a[href="/repos"]) {
+  display: none !important;
+}
+
+/* Hide Codespaces */
+html.deslop-codespaces [role="menu"] li:has(> a[href^="/codespaces/new"]) {
+  display: none !important;
+}
+
+/* Hide GitHub Enterprise upsells */
+html.deslop-enterprise li:has(> a[href^="/organizations/enterprise_plan"]) {
   display: none !important;
 }

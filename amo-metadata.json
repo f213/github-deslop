@@ -3,7 +3,7 @@
   "categories": ["appearance", "web-development"],
   "summary": { "en-US": "Hides Copilot and other clutter from the GitHub interface." },
   "description": {
-    "en-US": "Hides Copilot and other clutter from github.com. Each item can be switched off on the options page.\n\n- Copilot mentions: the header Copilot button and menu, the Agents tab, the Copilot panel toggle and the per-file \"Ask about this diff\" button on Files changed, Copilot in the merge box, the reviewer sidebar and picker, the comment toolbar and the menus.\n- The new notifications badge on the inbox icon.\n- The org icon in the breadcrumbs and the repo title.\n- The All issues / All PRs / All repos buttons in the header."
+    "en-US": "Hides Copilot and other clutter from github.com:\n\n- Copilot and agents\n- Codespaces\n- Enterprise upsells\n- Visual distractions like org icon or notifications badge\n\nEach item can be switched off on the options page."
   },
   "homepage": { "en-US": "https://github.com/f213/github-deslop" },
   "support_url": { "en-US": "https://github.com/f213/github-deslop/issues" },

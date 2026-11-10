@@ -24,6 +24,8 @@ Each item can be switched off on the options page.
 
 Install it from [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/github-deslop/), or download the `.xpi` from the [latest release](https://github.com/f213/github-deslop/releases/latest) and open it in Firefox. Firefox 142 or newer is required.
 
+Chrome, Edge and other Chromium browsers 148 or newer run `extension/` as is, since Chromium 148 added the `browser.*` namespace. Clone this repo, open `chrome://extensions` (`edge://extensions` in Edge), turn on Developer mode, click Load unpacked and pick the `extension/` folder. To update, run `git pull` and press Reload on the extension's card.
+
 ## Development
 
 ```sh

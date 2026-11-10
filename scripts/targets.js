@@ -3,6 +3,9 @@ export const PAGES = {
   changes: 'https://github.com/fandsdev/eslint-config-fans/pull/47/changes',
   repo: 'https://github.com/fandsdev/eslint-config-fans',
   blob: 'https://github.com/fandsdev/eslint-config-fans/blob/main/README.md',
+  blobMenu: 'https://github.com/fandsdev/eslint-config-fans/blob/main/README.md',
+  pulls: 'https://github.com/fandsdev/eslint-config-fans/pulls',
+  userMenu: 'https://github.com/fandsdev/eslint-config-fans',
 };
 
 // Run in the page right before a check that names them, to reveal targets that only render on
@@ -16,6 +19,22 @@ export const PREPARE = {
       document.querySelector('[data-testid="top-bar-actions"] button[aria-labelledby^="global-create-menu"]').click();
     }
     await until(() => document.querySelector('[role="menu"] a[href="/gist"]'));
+  },
+  fileMenu: async () => {
+    const until = async (predicate) => {
+      for (let i = 0; i < 100 && !predicate(); i++) await new Promise((r) => setTimeout(r, 150));
+    };
+    const open = () => document.querySelector('[role="menu"] [role="menuitemcheckbox"]');
+    if (!open()) document.querySelector('[data-testid="more-file-actions-button-nav-menu-wide"]').click();
+    await until(open);
+  },
+  userMenu: async () => {
+    const until = async (predicate) => {
+      for (let i = 0; i < 100 && !predicate(); i++) await new Promise((r) => setTimeout(r, 150));
+    };
+    const open = () => document.querySelector('a[href="/settings/enterprises"]');
+    if (!open()) document.querySelector('button[data-login]').click();
+    await until(open);
   },
   reviewerPicker: async () => {
     const until = async (predicate) => {
@@ -50,7 +69,12 @@ export const TARGETS = [
   { page: 'repo', setting: 'copilot', name: 'agents-tab', selector: 'header a[href*="/agents"]' },
   { page: 'blob', setting: 'copilot', name: 'blob-ask-copilot', selector: 'button[data-testid="copilot-ask-menu"]' },
   { page: 'blob', setting: 'copilot', name: 'blob-agent-session', selector: 'button > .octicon-agent' },
+  { page: 'blob', setting: 'copilot', name: 'blob-add-to-space', selector: 'button > .octicon-space' },
+  { page: 'blob', setting: 'codespaces', name: 'create-menu-codespace', selector: '[role="menu"] a[href="/codespaces/new"]', prepare: 'createMenu' },
   { page: 'blob', setting: 'copilot', name: 'create-menu-agent-session', selector: '[role="menu"] a[href="/copilot"]', prepare: 'createMenu' },
+  { page: 'userMenu', setting: 'enterprise', name: 'user-menu-try-enterprise', selector: 'a[href^="/organizations/enterprise_plan"]', prepare: 'userMenu' },
+  { page: 'pulls', setting: 'copilot', name: 'pulls-agent-session', selector: 'button > .octicon-agent' },
+  { page: 'blobMenu', setting: 'copilot', name: 'file-menu-copilot-group', selector: '[role="menu"] [data-testid="copilot-menu-items"]', prepare: 'fileMenu' },
   { page: 'repo', setting: 'orgIcon', name: 'repo-title-avatar', selector: '#repo-title-component img[data-testid="github-avatar"]' },
 ];
 
@@ -70,5 +94,8 @@ export const KEEP = [
   { page: 'changes', name: 'file-viewed', selector: 'button[aria-label="Not Viewed"], button[aria-label="Viewed"]' },
   { page: 'blob', name: 'blob-raw', selector: '[data-testid="raw-button"]' },
   { page: 'blob', name: 'create-menu-gist', selector: '[role="menu"] a[href="/gist"]', prepare: 'createMenu' },
+  { page: 'userMenu', name: 'user-menu-enterprises', selector: 'a[href="/settings/enterprises"]', prepare: 'userMenu' },
+  { page: 'pulls', name: 'pulls-new-pr', selector: 'a', text: 'New pull request' },
+  { page: 'blobMenu', name: 'file-menu-permalink', selector: '[role="menu"] [role="menuitem"]', text: 'Copy permalink', prepare: 'fileMenu' },
   { page: 'repo', name: 'repo-name', selector: '#repo-title-component [data-testid="repo-name-link"]' },
 ];

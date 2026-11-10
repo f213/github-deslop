@@ -4,6 +4,8 @@ const DESLOP_SETTINGS = {
   notifDot: 'Hide the new notifications badge',
   orgIcon: 'Hide the org icon',
   globalNav: 'Hide All issues / All PRs / All repos buttons',
+  codespaces: 'Hide Codespaces',
+  enterprise: 'Hide GitHub Enterprise upsells',
 };
 
 const DESLOP_DEFAULTS = Object.fromEntries(Object.keys(DESLOP_SETTINGS).map((key) => [key, true]));

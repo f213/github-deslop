@@ -8,12 +8,17 @@ A Firefox extension that hides Copilot and other clutter from github.com.
 
 ## What it hides
 
-Each item can be switched off on the extension's options page.
+Each item can be switched off on the options page.
 
-- **Copilot mentions**: the header Copilot button and menu, the Agents tab, the Copilot panel toggle and the per-file "Ask about this diff" button on Files changed, Copilot in the merge box, the reviewer sidebar and picker, the comment toolbar and the menus.
-- **The new notifications badge** on the inbox icon.
-- **The org icon** in the breadcrumbs and the repo title.
-- **The All issues / All PRs / All repos buttons** in the header.
+- **Copilot and agents**
+  - Header: Copilot button and menu, Agents tab, New agent session in «+».
+  - Pull requests: merge box, reviewer sidebar and picker, comment toolbar, Copilot panel and Ask about this diff on Files changed, New agent session on the list.
+  - Files: Ask Copilot, New agent session, Add to space, Copilot group in «…».
+- **Codespaces**: New codespace in «+».
+- **Enterprise upsells**: Try Enterprise in the user menu.
+- **Notifications badge** on the inbox icon.
+- **Org icon** in the breadcrumbs and repo title.
+- **All issues / All PRs / All repos** buttons in the header.
 
 ## Install
 

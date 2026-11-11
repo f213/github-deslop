@@ -1,7 +1,7 @@
 name: Release
 
 # Every manifest version that reaches master without a GitHub release yet is signed on AMO and published.
-# A prerelease carrying the dev add-on comes first, so the build is installable while AMO review is pending.
+# A prerelease carrying the dev add-on and a Chromium zip comes first, so the build is installable while AMO review is pending.
 on:
   push:
     branches: [master]
@@ -62,7 +62,8 @@ jobs:
           VERSION: ${{ steps.version.outputs.version }}
         run: |
           cp web-ext-artifacts/dev/*-"$VERSION".xpi "github-deslop-dev-$VERSION.xpi"
-          gh release create "v$VERSION" "github-deslop-dev-$VERSION.xpi" --prerelease --target "$GITHUB_SHA" --title "v$VERSION" --generate-notes
+          (cd extension && zip -r "../github-deslop-chromium-$VERSION.zip" .)
+          gh release create "v$VERSION" "github-deslop-dev-$VERSION.xpi" "github-deslop-chromium-$VERSION.zip" --prerelease --target "$GITHUB_SHA" --title "v$VERSION" --generate-notes
 
       - name: Sign on AMO
         if: steps.release.outputs.state != 'released'

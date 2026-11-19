@@ -69,3 +69,11 @@ html.deslop-codespaces [role="menu"] li:has(> a[href^="/codespaces/new"]) {
 html.deslop-enterprise li:has(> a[href^="/organizations/enterprise_plan"]) {
   display: none !important;
 }
+
+/* Hide Code and Try the Overview page on pull requests */
+html.deslop-prHeader [data-component="PH_Actions"] :is(
+  div:has(> div > button[aria-label="Try the Overview page"]),
+  button:has(.octicon-code)
+) {
+  display: none !important;
+}

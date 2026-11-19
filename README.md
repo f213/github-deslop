@@ -19,6 +19,7 @@ Each item can be switched off on the options page.
 - **Notifications badge** on the inbox icon.
 - **Org icon** in the breadcrumbs and repo title.
 - **All issues / All PRs / All repos** buttons in the header.
+- **Code and Try the Overview page** buttons in the pull request header.
 
 ## Install
 

@@ -6,6 +6,7 @@ const DESLOP_SETTINGS = {
   globalNav: 'Hide All issues / All PRs / All repos buttons',
   codespaces: 'Hide Codespaces',
   enterprise: 'Hide GitHub Enterprise upsells',
+  prHeader: 'Hide Code and Try the Overview page on pull requests',
 };
 
 const DESLOP_DEFAULTS = Object.fromEntries(Object.keys(DESLOP_SETTINGS).map((key) => [key, true]));

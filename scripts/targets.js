@@ -6,6 +6,7 @@ export const PAGES = {
   blobMenu: 'https://github.com/fandsdev/eslint-config-fans/blob/main/README.md',
   pulls: 'https://github.com/fandsdev/eslint-config-fans/pulls',
   userMenu: 'https://github.com/fandsdev/eslint-config-fans',
+  draftPr: 'https://github.com/fandsdev/medical-backend/pull/694',
 };
 
 // Run in the page right before a check that names them, to reveal targets that only render on
@@ -75,6 +76,9 @@ export const TARGETS = [
   { page: 'userMenu', setting: 'enterprise', name: 'user-menu-try-enterprise', selector: 'a[href^="/organizations/enterprise_plan"]', prepare: 'userMenu' },
   { page: 'pulls', setting: 'copilot', name: 'pulls-agent-session', selector: 'button > .octicon-agent' },
   { page: 'blobMenu', setting: 'copilot', name: 'file-menu-copilot-group', selector: '[role="menu"] [data-testid="copilot-menu-items"]', prepare: 'fileMenu' },
+  { page: 'pr', setting: 'prHeader', name: 'pr-header-code', selector: '[data-component="PH_Actions"] button:has(.octicon-code)' },
+  { page: 'draftPr', setting: 'prHeader', name: 'pr-header-code', selector: '[data-component="PH_Actions"] button:has(.octicon-code)' },
+  { page: 'draftPr', setting: 'prHeader', name: 'pr-header-try-overview', selector: '[data-component="PH_Actions"] button[aria-label="Try the Overview page"]' },
   { page: 'repo', setting: 'orgIcon', name: 'repo-title-avatar', selector: '#repo-title-component img[data-testid="github-avatar"]' },
 ];
 
@@ -97,5 +101,7 @@ export const KEEP = [
   { page: 'userMenu', name: 'user-menu-enterprises', selector: 'a[href="/settings/enterprises"]', prepare: 'userMenu' },
   { page: 'pulls', name: 'pulls-new-pr', selector: 'a', text: 'New pull request' },
   { page: 'blobMenu', name: 'file-menu-permalink', selector: '[role="menu"] [role="menuitem"]', text: 'Copy permalink', prepare: 'fileMenu' },
+  { page: 'pr', name: 'pr-header-merge-status', selector: '[data-component="PH_Actions"] button', text: 'Merge status' },
+  { page: 'draftPr', name: 'pr-header-activity-filter', selector: '[data-component="PH_Actions"] action-menu button' },
   { page: 'repo', name: 'repo-name', selector: '#repo-title-component [data-testid="repo-name-link"]' },
 ];
